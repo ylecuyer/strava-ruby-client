@@ -12,6 +12,14 @@ module Strava
       def errors
         response[:body]['errors']
       end
+
+      def status
+        response[:body]['status']
+      end
+
+      def error
+        response[:body]['error']
+      end
     end
   end
 end
