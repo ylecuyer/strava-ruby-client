@@ -19,7 +19,7 @@ module Strava
         end
 
         def handle_upload_errors(env)
-          raise Strava::Errors::UploadFailed, response_values(env) if env.status != 200 && env.body.has_key?('error') && !env.body['error'].blank?
+          raise Strava::Errors::UploadFailed, response_values(env) if env.status != 201 && env.body.has_key?('error') && !env.body['error'].blank?
         end
 
         def response_values(env)
