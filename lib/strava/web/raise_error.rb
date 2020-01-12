@@ -5,7 +5,7 @@ module Strava
         ClientErrorStatuses = (400...600).freeze
 
         def on_complete(env)
-          handle_upload_errors(env) if env.url.to_s.end_with?('/uploads')
+          handle_upload_errors(env) if env.method = :post && env.url.path.end_with?('/uploads')
 
           case env[:status]
           when 404
